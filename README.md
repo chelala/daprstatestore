@@ -1,5 +1,7 @@
 # daprstatestore
 
+A [Dapr State](https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/) session store backend for [gorilla/sessions](http://www.gorillatoolkit.org/pkg/sessions) - [src](https://github.com/gorilla/sessions).
+
 based on https://github.com/boj/redistore/tree/master
 
 ```bash
