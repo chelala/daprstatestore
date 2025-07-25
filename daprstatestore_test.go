@@ -294,13 +294,13 @@ func TestRediStore(t *testing.T) {
 		if err != nil {
 			t.Fatal("error getting store")
 		}
-		session.Values["big"] = make([]byte, base64.StdEncoding.DecodedLen(4096*8))
+		session.Values["big"] = make([]byte, base64.StdEncoding.DecodedLen(65535*2)) // 128KB
 		err = session.Save(req, w)
 		if err == nil {
 			t.Fatal("expected an error, got nil")
 		}
 
-		store.SetMaxLength(4096 * 9) // A bit more than the value size to account for encoding overhead.
+		store.SetMaxLength(65535 * 3) // A bit more than the value size to account for encoding overhead.
 		err = session.Save(req, w)
 		if err != nil {
 			t.Fatal("failed to Save:", err)

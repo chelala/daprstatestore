@@ -150,7 +150,7 @@ func NewDaprStateStore(stateStoreName string, keyPairs ...[]byte) (*DaprStateSto
 			MaxAge: sessionExpire,
 		},
 		DefaultMaxAge: 60 * 60 * 24, // 1 day default
-		maxLength:     4096 * 4,     // 16KB
+		maxLength:     65536,        // 64KB
 		keyPrefix:     "session_",
 		serializer:    GobSerializer{},
 	}
